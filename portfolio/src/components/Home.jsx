@@ -4,6 +4,7 @@ import BlurText from "./BlurText";
 import ParticlesBackground from "./ParticlesBackground";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { motion } from "framer-motion";
+import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 import {
   FaJava, FaReact, FaGitAlt, FaLinux, FaHtml5, FaCss3Alt, FaNodeJs, FaServer,
 } from "react-icons/fa";
@@ -11,6 +12,7 @@ import {
   SiSpringboot, SiMongodb, SiDjango, SiMysql, SiPostgresql, SiFigma,
 } from "react-icons/si";
 import "bootstrap/dist/css/bootstrap.min.css";
+import '../App.css'
 
 const skillIconsMap = {
   Java: <FaJava size={28} color="#007396" />,
@@ -37,10 +39,16 @@ const skillsByDomain = {
   "Operating Systems": ["Linux"],
 };
 
+const education = [
+  { year: "2020-2021", degree: "SSC Board", institution: "Narayana High School, Nellore", percentage:"98.1%" },
+  { year: "2021-2023", degree: "Intermediate (MPC)", institution: "Narayana Junior College, Nellore", percentage:"88.8%" },
+  { year: "2023-Present", degree: "B.Tech in Computer Science", institution: "KL University, Guntur, Andhra Pradesh", percentage:"9.74 (CGPA)"},
+];
+
 const projects = [
   {
     title: "Property Sales and Rental Management",
-    tech: "Django, Bootstrap, SQLite",
+    tech: "Django, Bootstrap, SQLite,HTML,CSS",
     desc: "Web platform for property listings with role-based login, filtering, and booking.",
     videoUrl: "/videos/property-management.mp4",
     codeUrl: "https://github.com/phanee27/PSRM",
@@ -48,7 +56,7 @@ const projects = [
   },
   {
     title: "Asthetica - Online Art Gallery",
-    tech: "React, Spring Boot, MySQL",
+    tech: "React, Spring Boot, MySQL,HTML,CSS,JS",
     desc: "Upload & purchase artworks with full-stack flow and responsive design.",
     videoUrl: "https://youtu.be/8FuDBcd2YFo?si=IGaS218k4dshiakq",
     codeUrl: "https://github.com/phanee27/Asthetica",
@@ -69,11 +77,14 @@ const sectionVariant = {
 export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
+
   }, []);
+
+   
   return (
     <>
       <ParticlesBackground
-        canvasStyle={{ position: "absolute", top: 0, left: 0, zIndex: -1 }}
+        canvasStyle={{ position: "absolute", top: 0, left: 0, zIndex: -1 ,width:0,height:0}}
       />
 
       <Navbar bg="dark" variant="dark" expand="lg" fixed="top" className="shadow-sm">
@@ -82,7 +93,7 @@ export default function App() {
           <Navbar.Toggle />
           <Navbar.Collapse>
             <Nav className="ms-auto">
-              {["intro", "about", "skills", "projects", "contact"].map((id) => (
+              {["intro", "about", "skills", "education", "projects","contact"].map((id) => (
                 <Nav.Link key={id} href={`#${id}`} className="text-white">
                   {id.charAt(0).toUpperCase() + id.slice(1)}
                 </Nav.Link>
@@ -101,8 +112,19 @@ export default function App() {
           animate="visible"
         >
           <div className="intro-content">
-            <h1>Hello, I'm <span className="highlight">Paneendra</span></h1>
-            <p className="intro-sub">Aspiring Full-Stack Developer passionate about building impactful solutions.</p>
+            <h1>Hello, I'm <span className="highlight">phanee</span></h1>
+            <p className="intro-sub">Aspiring Full-Stack Developer passionate about building impactful solutions. Open to exciting collaborations and team projects.</p>
+            <div className="social-links mb-4">
+              <a href="https://github.com/phanee27" target="_blank" rel="noreferrer">
+                <FaGithub size={28} color="#fff" />
+              </a>
+              <a href="https://linkedin.com/in/phanee27" target="_blank" rel="noreferrer">
+                <FaLinkedin size={28} color="#0A66C2" />
+              </a>
+              <a href="https://www.instagram.com/k_v_phaneendra" target="_blank" rel="noreferrer">
+                <FaInstagram size={28} color="#E4405F" />
+              </a>
+            </div>
             <div className="intro-buttons">
               <a href="#projects" className="btn btn-outline-info me-3">View Projects</a>
               <a href="#contact" className="btn btn-outline-light">Contact Me</a>
@@ -147,6 +169,23 @@ export default function App() {
             ))}
           </div>
         </motion.section>
+        
+     <motion.section id="education" className="section education-section" initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <h2>Education</h2>
+        <div className="timeline">
+          {education.map((edu, idx) => (
+            <motion.div key={idx} className="timeline-item" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+              <div className="circle-dot"></div>
+              <div className="timeline-content">
+                <h4>{edu.degree}</h4>
+                <p>{edu.institution}</p>
+                <span>{edu.year}</span>
+                <span style={{ marginLeft: "15px" , fontWeight: "bold"  }}>Percentage: {edu.percentage}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
 
         <motion.section id="projects" className="section projects-section" variants={sectionVariant} initial="hidden" whileInView="visible" viewport={{ once: true }}>
           <h2>Projects</h2>
@@ -193,246 +232,7 @@ export default function App() {
         © 2025 Kavali Venkata Paneendra
       </footer>
 
-      <style jsx global>{`
-        html, body {
-          height: 100%;
-          margin: 0;
-          padding: 0;
-          overflow-y: auto;
-          scroll-padding-top: 80px;
-          scroll-behavior: smooth;
-        }
-      `}</style>
-
-      <style jsx>{`
-        .scroll-container {
-          scroll-snap-type: y mandatory;
-          height: 100%;
-        }
-
-        .section {
-          scroll-snap-align: start;
-          min-height: 100vh;
-          padding: 100px 20px 40px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          background: transparent;
-          color: white;
-          text-align: center;
-        }
-
-        .intro-section {
-          padding-top: 140px;
-        }
-
-        .intro-content {
-          max-width: 700px;
-        }
-
-        .highlight {
-          color: #61dafb;
-        }
-
-        .intro-sub {
-          font-size: 1.25rem;
-          margin-bottom: 30px;
-          color: #ccc;
-        }
-
-        .intro-buttons .btn {
-          font-size: 1.1rem;
-          padding: 10px 20px;
-          border-radius: 30px;
-        }
-
-        .about-section {
-          flex-direction: row;
-          max-width: 900px;
-          margin: 0 auto;
-          gap: 50px;
-          text-align: left;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .about-image-wrapper {
-          flex: 0 0 280px;
-          border-radius: 15px;
-          overflow: hidden;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-        }
-
-        .about-image {
-          width: 280px;
-          height: 280px;
-          object-fit: cover;
-          border-radius: 15px;
-        }
-
-        .about-text {
-          flex: 1;
-          max-width: 500px;
-          font-size: 1.1rem;
-          line-height: 1.6;
-        }
-
-        .domain-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 30px;
-          width: 100%;
-          max-width: 1000px;
-        }
-
-        .domain-section,
-        .skill-card,
-        .project-card,
-        .contact-card-content {
-          background: rgba(255, 255, 255, 0.05);
-          color: white;
-          box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
-        }
-
-        .domain-title {
-          font-size: 1.25rem;
-          font-weight: 600;
-          margin-bottom: 10px;
-          color: #61dafb;
-        }
-
-        .skills-grid {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 20px;
-        }
-
-        .skill-card {
-          padding: 15px;
-          border-radius: 8px;
-          text-align: center;
-          width: 120px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-          font-weight: 500;
-          cursor: pointer;
-        }
-
-        .projects-grid {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 24px;
-          margin-top: 20px;
-        }
-
-        .project-card {
-          border-radius: 12px;
-          padding: 20px;
-          width: 320px;
-          text-align: left;
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-        }
-
-        .project-video {
-          width: 100%;
-          border-radius: 8px;
-          max-height: 180px;
-          object-fit: cover;
-        }
-
-        .tech-badges {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-        }
-
-        .tech-badge {
-          background: #222;
-          color: rgb(6, 193, 255);
-          padding: 4px 12px;
-          border-radius: 20px;
-          font-size: 0.85rem;
-          font-weight: 600;
-        }
-
-        .project-buttons {
-          display: flex;
-          justify-content: space-between;
-          gap: 12px;
-          margin-top: 10px;
-        }
-
-        .project-buttons .btn {
-          flex: 1;
-          font-size: 0.95rem;
-          padding: 8px 12px;
-          border-radius: 25px;
-          transition: all 0.3s ease;
-        }
-
-        .project-buttons .btn:hover {
-          transform: scale(1.05);
-          opacity: 0.9;
-        }
-
-
-        .contact-card-content {
-          padding: 30px 40px;
-          border-radius: 15px;
-          max-width: 480px;
-          margin: 0 auto;
-          font-size: 1.1rem;
-          text-align: left;
-        }
-
-        .contact-list li {
-          margin-bottom: 15px;
-        }
-
-        .nav-link:hover {
-          color: #61dafb !important;
-        }
-
-        @media (max-width: 767px) {
-        .about-section {
-          flex-direction: column;
-          text-align: center;
-          padding: 40px 20px;
-          gap: 20px;
-        }
-
-        .about-image-wrapper {
-          width: 200px;
-          height: 200px;
-          border-radius: 10px; /* slight rounding */
-          overflow: hidden;
-          margin: 0 auto;
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        .about-image {
-          width: 100%;
-          height: 90%;
-          object-fit: cover;
-          border-radius: 12px; /* match wrapper */
-        }
-
-        .about-text {
-          font-size: 1.3rem;
-          line-height: 1.5;
-          max-width: 80%;
-        }
-      }
-
-
-      `}</style>
+     
     </>
   );
 }

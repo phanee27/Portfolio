@@ -4,7 +4,7 @@ export default function ShinyText({ children }) {
   return (
     <span className="shiny-text">
       {children}
-      <style jsx>{`
+      <style>{`
         .shiny-text {
           color: #5cc8ff; /* Base blue text color */
           background: linear-gradient(
