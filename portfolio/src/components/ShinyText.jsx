@@ -9,9 +9,9 @@ export default function ShinyText({ children }) {
           color: #5cc8ff; /* Base blue text color */
           background: linear-gradient(
             120deg,
-            rgb(41, 77, 144) 40%,
+            rgb(85, 136, 229) 40%,
             rgb(104, 177, 255) 50%,
-            rgb(81, 103, 228) 60%
+            rgb(75, 128, 207) 60%
           );
           background-size: 200% 100%;
           -webkit-background-clip: text;
