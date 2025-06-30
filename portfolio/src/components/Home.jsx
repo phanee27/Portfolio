@@ -126,36 +126,24 @@ export default function App() {
         }}
       />
 
-      <Navbar
-        bg="dark"
-        variant="dark"
-        expand="lg"
-        fixed="top"
-        className="shadow-sm"
-      >
-        <Container>
-          <Navbar.Brand className="text-white">
-            Paneendra's Portfolio
-          </Navbar.Brand>
-          <Navbar.Toggle />
-          <Navbar.Collapse>
-            <Nav className="ms-auto">
-              {[
-                "intro",
-                "about",
-                "skills",
-                "education",
-                "projects",
-                "contact",
-              ].map((id) => (
-                <Nav.Link key={id} href={`#${id}`} className="text-white">
-                  {id.charAt(0).toUpperCase() + id.slice(1)}
-                </Nav.Link>
-              ))}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+<Navbar expand="lg" className="custom-navbar mt-4"> 
+  <Container>
+    <Navbar.Brand href="#intro" className="text-white fw-bold">
+      Paneendra's Portfolio
+    </Navbar.Brand>
+    <Navbar.Toggle aria-controls="navbarScroll" />
+    <Navbar.Collapse id="navbarScroll">
+      <Nav className="ms-auto my-2 my-lg-0" navbarScroll>
+        {[ "about", "skills", "education", "projects", "contact"].map((id) => (
+          <Nav.Link key={id} href={`#${id}`} className="nav-link-custom">
+            {id.charAt(0).toUpperCase() + id.slice(1)}
+          </Nav.Link>
+        ))}
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
+
 
       <div className="scroll-container">
         <motion.section
