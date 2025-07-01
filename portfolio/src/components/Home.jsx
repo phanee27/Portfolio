@@ -11,12 +11,11 @@ import {
   FaLinux,
   FaHtml5,
   FaCss3Alt,
-  FaNodeJs,
   FaServer,
+  FaDownload,
   FaUniversity,
   FaLanguage,
   FaCertificate,
-  FaDownload
 } from "react-icons/fa";
 import {
   SiSpringboot,
@@ -25,7 +24,7 @@ import {
   SiMysql,
   SiPostgresql,
   SiFigma,
-  SiCoursera
+  SiCoursera,
 } from "react-icons/si";
 import { Slide, Fade } from "react-awesome-reveal";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -108,21 +107,24 @@ const certifications = [
     title: "Lingua Skills Certification",
     issuedBy: "Cambridge English",
     year: "2025",
-    credentialUrl: "https://drive.google.com/file/d/1VJJy5e-pl4iXSEMznHM2r5xnWqZUy3Uw/view",
+    credentialUrl:
+      "https://drive.google.com/file/d/1VJJy5e-pl4iXSEMznHM2r5xnWqZUy3Uw/view",
     icon: <FaUniversity size={32} color="#47A248" />,
   },
   {
     title: "Programming in Java",
     issuedBy: "NPTEL",
     year: "Jan-Apr 2024",
-    credentialUrl: "https://drive.google.com/file/d/17cUcLp4R6h8BV8cDHHXP3VUBdd5WqHaQ/view",
+    credentialUrl:
+      "https://drive.google.com/file/d/17cUcLp4R6h8BV8cDHHXP3VUBdd5WqHaQ/view",
     icon: <FaLanguage size={32} color="#2A73CC" />,
   },
   {
     title: "Salesforce Certified AI Associate",
     issuedBy: "Trailhead",
     year: "Oct 30, 2024",
-    credentialUrl: "https://drive.google.com/file/d/17cUcLp4R6h8BV8cDHHXP3VUBdd5WqHaQ/view",
+    credentialUrl:
+      "https://drive.google.com/file/d/1pKeZkt8x1EHKpezCttP6lSycy6x_wFY-/view",
     icon: <FaCertificate size={32} color="#2A73CC" />,
   },
 ];
@@ -154,7 +156,7 @@ export default function App() {
         }}
       />
 
-      <Navbar expand="lg" className="custom-navbar mt-4">
+      <Navbar expand="lg" className="custom-navbar mt-2">
         <Container>
           <Navbar.Brand href="#intro" className="text-white fw-bold">
             Paneendra's Portfolio
@@ -162,17 +164,18 @@ export default function App() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="ms-auto my-2 my-lg-0" navbarScroll>
-              {["about", "skills", "education", "projects", "certifications","contact"].map(
-                (id) => (
-                  <Nav.Link
-                    key={id}
-                    href={`#${id}`}
-                    className="nav-link-custom"
-                  >
-                    {id.charAt(0).toUpperCase() + id.slice(1)}
-                  </Nav.Link>
-                )
-              )}
+              {[
+                "about",
+                "skills",
+                "education",
+                "projects",
+                "certifications",
+                "contact",
+              ].map((id) => (
+                <Nav.Link key={id} href={`#${id}`} className="nav-link-custom">
+                  {id.charAt(0).toUpperCase() + id.slice(1)}
+                </Nav.Link>
+              ))}
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -225,14 +228,13 @@ export default function App() {
                   Contact Me
                 </a>
                 <a
-  href="/Resume.pdf"
-  download
-  className="btn btn-outline-light ms-3"
-  style={{ borderRadius: "30px" }}
->
-  <FaDownload /> Resume
-</a>
-
+                  href="/Resume.pdf"
+                  download
+                  className="btn btn-outline-light ms-3"
+                  style={{ borderRadius: "30px" }}
+                >
+                  <FaDownload /> Resume
+                </a>
               </div>
             </div>
           </section>
@@ -353,34 +355,33 @@ export default function App() {
         </Slide>
 
         <Slide direction="up" triggerOnce>
-  <section id="certifications" className="section">
-    <h2>Certifications</h2>
-    <div className="cert-list">
-      {certifications.map((cert, idx) => (
-        <div key={idx} className="cert-card">
-          <div className="cert-header">
-            {cert.icon && <div className="cert-icon">{cert.icon}</div>}
-            <div>
-              <h4>{cert.title}</h4>
-              <p>
-                <strong>{cert.issuedBy}</strong> — {cert.year}
-              </p>
+          <section id="certifications" className="section">
+            <h2>Certifications</h2>
+            <div className="cert-list">
+              {certifications.map((cert, idx) => (
+                <div key={idx} className="cert-card">
+                  <div className="cert-header">
+                    {cert.icon && <div className="cert-icon">{cert.icon}</div>}
+                    <div>
+                      <h4>{cert.title}</h4>
+                      <p>
+                        <strong>{cert.issuedBy}</strong> — {cert.year}
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href={cert.credentialUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-outline-light btn-sm mt-2"
+                  >
+                    View Credential
+                  </a>
+                </div>
+              ))}
             </div>
-          </div>
-          <a
-            href={cert.credentialUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-outline-light btn-sm mt-2"
-          >
-            View Credential
-          </a>
-        </div>
-      ))}
-    </div>
-  </section>
-</Slide>
-
+          </section>
+        </Slide>
 
         <Fade triggerOnce>
           <section id="contact" className="section contact-card">
