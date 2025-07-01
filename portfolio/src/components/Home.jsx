@@ -39,7 +39,7 @@ const skillIconsMap = {
   CSS: <FaCss3Alt size={28} color="#1572B6" />,
   Git: <FaGitAlt size={28} color="#F05032" />,
   "REST API": <FaServer size={28} color="#6c757d" />,
-  Django: <SiDjango size={28} color="#092E20" />,
+  Django: <SiDjango size={40} color="white" />,
   MySQL: <SiMysql size={28} color="#4479A1" />,
   PostgreSQL: <SiPostgresql size={28} color="#336791" />,
   Linux: <FaLinux size={28} color="#FCC624" />,
@@ -109,7 +109,7 @@ const certifications = [
     year: "2025",
     credentialUrl:
       "https://drive.google.com/file/d/1VJJy5e-pl4iXSEMznHM2r5xnWqZUy3Uw/view",
-    icon: <FaUniversity size={32} color="#47A248" />,
+    icon: <img src="/logos/cambride_logo.webp" alt="Cambridge Assessment English Logo" width="50" />,
   },
   {
     title: "Programming in Java",
@@ -117,7 +117,7 @@ const certifications = [
     year: "Jan-Apr 2024",
     credentialUrl:
       "https://drive.google.com/file/d/17cUcLp4R6h8BV8cDHHXP3VUBdd5WqHaQ/view",
-    icon: <FaLanguage size={32} color="#2A73CC" />,
+    icon: <img src="/logos/nptel_logo.jpg" alt="NPTEL Logo" width="50" />,
   },
   {
     title: "Salesforce Certified AI Associate",
@@ -125,7 +125,7 @@ const certifications = [
     year: "Oct 30, 2024",
     credentialUrl:
       "https://drive.google.com/file/d/1pKeZkt8x1EHKpezCttP6lSycy6x_wFY-/view",
-    icon: <FaCertificate size={32} color="#2A73CC" />,
+    icon: <img src="/logos/salesforce.png" alt="Salesforce Logo" width="50" />,
   },
 ];
 
@@ -225,7 +225,7 @@ export default function App() {
                   View Projects
                 </a>
                 <a href="#contact" className="btn btn-outline-light">
-                  Contact Me
+                  Get in touch
                 </a>
                 <a
                   href="/Resume.pdf"
@@ -251,12 +251,11 @@ export default function App() {
             </div>
             <div className="about-text">
               <h2>
-                <ShinyText>About Me</ShinyText>
+                <ShinyText><b>About Me</b></ShinyText>
               </h2>
               <p>
-                Hello, I’m Paneendra, currently pursuing a degree in Computer
-                Science. I specialize in full-stack development and have a
-                strong passion for solving complex problems.
+               Hi, I’m Paneendra — a Computer Science undergraduate passionate about full-stack development. I enjoy building responsive web apps, solving complex problems, and writing clean, efficient code. I'm driven by curiosity and love turning ideas into scalable digital solutions. Currently, I’m exploring modern frameworks and cloud technologies to sharpen my workflow.
+
               </p>
             </div>
           </section>
@@ -264,7 +263,7 @@ export default function App() {
 
         <Fade triggerOnce>
           <section id="skills" className="section">
-            <h2>Skills</h2>
+            <h2><b>Skills</b></h2>
             <div className="domain-grid">
               {Object.entries(skillsByDomain).map(([domain, skillList]) => (
                 <div key={domain} className="domain-section">
@@ -285,7 +284,7 @@ export default function App() {
 
         <Slide direction="left" triggerOnce>
           <section id="education" className="section education-section">
-            <h2>Education</h2>
+            <h2><b>Education</b></h2>
             <div className="timeline">
               {education.map((edu, idx) => (
                 <div key={idx} className="timeline-item">
@@ -306,7 +305,7 @@ export default function App() {
 
         <Slide direction="right" triggerOnce>
           <section id="projects" className="section projects-section">
-            <h2>Projects</h2>
+            <h2><b>Projects</b></h2>
             <div className="projects-grid">
               {projects.map((p, i) => (
                 <div key={i} className="project-card">
@@ -356,7 +355,7 @@ export default function App() {
 
         <Slide direction="up" triggerOnce>
           <section id="certifications" className="section">
-            <h2>Certifications</h2>
+            <h2><b>Certifications</b></h2>
             <div className="cert-list">
               {certifications.map((cert, idx) => (
                 <div key={idx} className="cert-card">
@@ -385,7 +384,7 @@ export default function App() {
 
         <Fade triggerOnce>
           <section id="contact" className="section contact-card">
-            <h2>Contact</h2>
+            <h2><b>Contact</b></h2>
             <form
               action="https://formsubmit.co/2300030317cseelge@gmail.com"
               method="POST"
