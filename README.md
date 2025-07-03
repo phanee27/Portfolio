@@ -4,7 +4,7 @@ Welcome to my personal developer portfolio website! This project showcases my sk
 
 ## 🌐 Live Demo
 
-👉 [portfolio-phanee27s-projects.vercel.app](https://portfolio-phanee27s-projects.vercel.app)
+👉 [portfolio](https://portfolio-phanee27s-projects.vercel.app)
 
 ## 📸 Preview
 
