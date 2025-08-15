@@ -13,9 +13,6 @@ import {
   FaCss3Alt,
   FaServer,
   FaDownload,
-  FaUniversity,
-  FaLanguage,
-  FaCertificate,
 } from "react-icons/fa";
 import {
   SiSpringboot,
@@ -24,7 +21,6 @@ import {
   SiMysql,
   SiPostgresql,
   SiFigma,
-  SiCoursera,
 } from "react-icons/si";
 import { Slide, Fade } from "react-awesome-reveal";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -80,7 +76,7 @@ const projects = [
     title: "Property Sales and Rental Management",
     tech: "Django, Bootstrap, SQLite,HTML,CSS",
     desc: "Developed a full-stack property management platform using Django, Bootstrap, and SQLite with role-based login, secure authentication, property search, filtering, booking system, and an integrated chatbot for user interaction.",
-    videoUrl: "https://youtu.be/8FuDBcd2YFo?si=IGaS218k4dshiakq",
+    videoUrl: "https://youtu.be/iyrdyvACvvA",
     codeUrl: "https://github.com/phanee27/PSRM",
     liveUrl: "https://psrm.pythonanywhere.com",
   },
@@ -92,21 +88,21 @@ const projects = [
     codeUrl: "https://github.com/phanee27/Asthetica",
     liveUrl: "https://asthetica.vercel.app",
   },
-  {
-    title: "The News Aggregator",
-    tech: "React, HTML, CSS, Material UI ",
-    desc: "Developed a responsive News Aggregator web app using React, HTML, CSS, and Material UI, integrated with the NewsAPI for real-time news updates. Implemented domain-based filtering (e.g., sports, politics) to enhance user experience and ensure organized content delivery, all within a clean and intuitive UI.",
-    videoUrl: "https://youtu.be/8FuDBcd2YFo?si=IGaS218k4dshiakq",
-    codeUrl: "https://github.com/phanee27/NewsAggregator",
-    liveUrl: "",
-  },
+  // {
+  //   title: "The News Aggregator",
+  //   tech: "React, HTML, CSS, Material UI ",
+  //   desc: "Developed a responsive News Aggregator web app using React, HTML, CSS, and Material UI, integrated with the NewsAPI for real-time news updates. Implemented domain-based filtering (e.g., sports, politics) to enhance user experience and ensure organized content delivery, all within a clean and intuitive UI.",
+  //   videoUrl: "https://youtu.be/8FuDBcd2YFo?si=IGaS218k4dshiakq",
+  //   codeUrl: "https://github.com/phanee27/NewsAggregator",
+  //   liveUrl: "https://news-aggregator-lemon-chi.vercel.app",
+  // },
 ];
 
 const certifications = [
   {
     title: "Lingua Skills Certification",
     issuedBy: "Cambridge English",
-    year: "2025",
+    year: "20 May 2024",
     credentialUrl:
       "https://drive.google.com/file/d/1VJJy5e-pl4iXSEMznHM2r5xnWqZUy3Uw/view",
     icon: <img src="/logos/cambride_logo.webp" alt="Cambridge Assessment English Logo" width="50" />,
@@ -122,7 +118,7 @@ const certifications = [
   {
     title: "Salesforce Certified AI Associate",
     issuedBy: "Trailhead",
-    year: "Oct 30, 2024",
+    year: "30 Oct 2024",
     credentialUrl:
       "https://drive.google.com/file/d/1pKeZkt8x1EHKpezCttP6lSycy6x_wFY-/view",
     icon: <img src="/logos/salesforce.png" alt="Salesforce Logo" width="50" />,
@@ -159,7 +155,7 @@ export default function App() {
       <Navbar expand="lg" className="custom-navbar mt-2">
         <Container>
           <Navbar.Brand href="#intro" className="text-white fw-bold">
-            Paneendra's Portfolio
+            <ShinyText> &lt;Phanee/&gt;</ShinyText>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -244,7 +240,7 @@ export default function App() {
           <section id="about" className="section about-section">
             <div className="about-image-wrapper">
               <img
-                src="https://media.licdn.com/dms/image/v2/D4E03AQGa0qNysmoOkA/profile-displayphoto-shrink_400_400/B4EZRLzTCCGYAg-/0/1736438527232?e=1754524800&v=beta&t=D97DI27WGppxYAUxqNNunGBWO9kWq7OKV-Isal3T92k"
+                src="/logos/profile.jpg"
                 alt="Paneendra"
                 className="about-image"
               />
@@ -254,7 +250,7 @@ export default function App() {
                 <ShinyText><b>About Me</b></ShinyText>
               </h2>
               <p>
-               Hi, I’m Paneendra — a Computer Science undergraduate passionate about full-stack development. I enjoy building responsive web apps, solving complex problems, and writing clean, efficient code. I'm driven by curiosity and love turning ideas into scalable digital solutions. Currently, I’m exploring modern frameworks and cloud technologies to sharpen my workflow.
+               Hi, I’m Paneendra , a Computer Science undergraduate passionate about full stack development. I enjoy building responsive web apps, solving complex problems, and writing clean, efficient code. I'm driven by curiosity and love turning ideas into scalable digital solutions. Currently, I’m exploring modern frameworks and cloud technologies to sharpen my workflow.
 
               </p>
             </div>
