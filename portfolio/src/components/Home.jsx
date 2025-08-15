@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import ShinyText from "./ShinyText";
 import DecryptText from "./DecryptText";
 import ParticlesBackground from "./ParticlesBackground";
@@ -135,6 +135,8 @@ const sectionVariant = {
 };
 
 export default function App() {
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -379,67 +381,100 @@ export default function App() {
         </Slide>
 
         <Fade triggerOnce>
-          <section id="contact" className="section contact-card">
-            <h2><b>Contact</b></h2>
-            <form
-              action="https://formsubmit.co/2300030317cseelge@gmail.com"
-              method="POST"
-              className="contact-form"
-            >
-              <div className="mb-3">
-                <label htmlFor="name" className="form-label">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="name"
-                  name="name"
-                  required
-                />
-              </div>
+  <section id="contact" className="section contact-card">
+    <h2><b>Contact</b></h2>
 
-              <div className="mb-3">
-                <label htmlFor="email" className="form-label">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  name="email"
-                  required
-                />
-              </div>
+    <form
+      className="contact-form"
+      onSubmit={async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
 
-              <div className="mb-3">
-                <label htmlFor="message" className="form-label">
-                  Questions / Comments
-                </label>
-                <textarea
-                  className="form-control"
-                  id="message"
-                  name="message"
-                  rows="4"
-                  required
-                ></textarea>
-              </div>
+        await fetch("https://formsubmit.co/2300030317cse1@gmail.com", {
+          method: "POST",
+          body: formData,
+        });
 
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_template" value="table" />
-              <input
-                type="hidden"
-                name="_autoresponse"
-                value="Thanks for contacting me! I'll get back to you soon."
-              />
-
-              <button type="submit" className="btn btn-outline-info mt-3">
-                Send Message
-              </button>
-            </form>
-          </section>
-        </Fade>
+        e.target.reset();
+        setSuccess(true);
+        setTimeout(() => setSuccess(false), 3000);
+      }}
+    >
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="name"
+          name="name"
+          required
+        />
       </div>
+
+      <div className="mb-3">
+        <label htmlFor="email" className="form-label">
+          Email
+        </label>
+        <input
+          type="email"
+          className="form-control"
+          id="email"
+          name="email"
+          required
+        />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="message" className="form-label">
+          Questions / Comments
+        </label>
+        <textarea
+          className="form-control"
+          id="message"
+          name="message"
+          rows="4"
+          required
+        ></textarea>
+      </div>
+
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input
+        type="hidden"
+        name="_autoresponse"
+        value="Thanks for contacting me! I'll get back to you soon."
+      />
+
+      <button type="submit" className="btn btn-outline-info mt-3">
+        Send Message
+      </button>
+    </form>
+    {success && (
+      <div
+        style={{
+          color: "green",
+          fontWeight: "bold",
+          marginBottom: "15px",
+        }}
+      >
+        ✅ Form submitted successfully! I’ll get back to you soon.
+      </div>
+    )}
+    {error && (
+      <div
+        style={{
+          color: "red",
+          fontWeight: "bold",
+          marginTop: "15px",
+        }}
+      >
+        ❌ Something went wrong. Please try again later.
+      </div>
+    )}
+  </section>
+</Fade>      </div>
 
       <footer className="footer-section bg-dark text-light py-4">
         <div className="container footer-content">
